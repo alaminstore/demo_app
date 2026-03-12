@@ -1,0 +1,1 @@
+get "up_in_web" => "rails/health#show", as: :rails_health_check
