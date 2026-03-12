@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
 
   before_validation :normalize_email
+  after_create_commit :enqueue_welcome_email
 
   scope :active, -> { where(is_active: true) }
 
@@ -15,5 +16,9 @@ class User < ApplicationRecord
 
   def normalize_email
     self.email = email.to_s.strip.downcase
+  end
+
+  def enqueue_welcome_email
+    UserWelcomeWorker.perform_async(id)
   end
 end

@@ -18,6 +18,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem 'mysql2', '~> 0.5.7'
+gem "sidekiq"
+gem "redis"
 
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
