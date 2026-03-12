@@ -10,5 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 0) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_12_102635) do
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "age"
+    t.text "bio"
+    t.datetime "created_at", null: false
+    t.string "email"
+    t.boolean "is_active", default: false
+    t.string "name"
+    t.datetime "updated_at", null: false
+  end
 end
